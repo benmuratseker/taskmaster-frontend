@@ -22,7 +22,7 @@
                 </label>
             </td>
             <td>
-                In Progress
+                <span class="status-dot in-progress"></span>In Progress
             </td>
             <td>
                 2025-3-14
@@ -30,12 +30,12 @@
         </tr>
         <tr>
             <td>
-                <label>
-                    <input type="checkbox" aria-label="Select task" checked />Develop Frontend
+                <label class="completed-task">
+                    <input type="checkbox" aria-label="Select task" checked/>Develop frontend
                 </label>
             </td>
             <td>
-                In Progress
+                <span class="status-dot completed"></span>Completed
             </td>
             <td>
                 2025-3-18
@@ -44,11 +44,11 @@
         <tr>
             <td>
                 <label>
-                    <input type="checkbox" aria-label="Select task" />Develop backend
+                    <input type="checkbox" aria-label="Select task"/>Develop backend
                 </label>
             </td>
             <td>
-                In Progress
+                <span class="status-dot in-progress"></span>In Progress
             </td>
             <td>
                 2025-3-21
@@ -56,4 +56,7 @@
         </tr>
     </tbody>
   </table>
+  <div class="button-container">
+    <button>Add New Task</button>
+</div>
 </div>
