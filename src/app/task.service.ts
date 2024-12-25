@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Task } from './task.model';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class TaskService {
 
   tasks: Task[] = [
