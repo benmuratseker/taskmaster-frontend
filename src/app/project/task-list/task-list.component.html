@@ -29,6 +29,7 @@
                 <td>
                     {{task.dueDate | date:"YYYY-MM-dd"}}
                 </td>
+                <td (click)="deleteTask(task.id)">X</td>
             </tr>
         }
         <!-- <tr>

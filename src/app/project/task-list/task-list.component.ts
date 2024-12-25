@@ -56,4 +56,8 @@ export class TaskListComponent {
     //this.tasks[taskIndex].completed = !this.tasks[taskIndex].completed;
     this.tasks = this.taskService.updateTask(updatedTask);
   }
+
+  deleteTask(id: number){
+    this.tasks = this.taskService.deleteTask(id);
+  }
 }
