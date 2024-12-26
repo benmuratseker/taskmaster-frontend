@@ -29,7 +29,8 @@
                 <td>
                     {{task.dueDate | date:"YYYY-MM-dd"}}
                 </td>
-                <td (click)="deleteTask(task.id)">X</td>
+                <td (click)="updateTask(task)">✏️</td>
+                <td (click)="deleteTask(task.id)">❌</td>
             </tr>
         }
         <!-- <tr>
@@ -77,6 +78,6 @@
     <button (click)="showModal = true">Add New Task</button>
 </div>
 @if (showModal) {
-    <app-task-form (closePanel)="showModal = false"></app-task-form>
+    <app-task-form (closePanel)="showModal = false" [currentTask]="selectedTask" [formType]="formType"></app-task-form>
 }
 </div>
