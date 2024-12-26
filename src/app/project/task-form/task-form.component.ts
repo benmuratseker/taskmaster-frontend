@@ -34,7 +34,6 @@ export class TaskFormComponent {
   }
 
   ngOnChanges(changes: SimpleChanges){
-    debugger;
       //  if(changes['currentTask'] && changes['currenTask'].currentValue){
     if (changes['currentTask'] !== undefined && changes['currentTask'].currentValue !== undefined) {
       const task = changes['currentTask'].currentValue as Task;
