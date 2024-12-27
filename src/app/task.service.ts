@@ -49,23 +49,33 @@ export class TaskService {
   }
 
   //add task
+  // addTask(task: Task){
+  //   this.tasks.push(task);
+  //   return this.tasks;
+  // }
   addTask(task: Task){
-    this.tasks.push(task);
-    return this.tasks;
+    return this.http.post(`${BASE_URL}/tasks`,{...task});
   }
 
   //update task
+  // updateTask(newTask: Task){
+  //   const taskIndex = this.tasks.findIndex((task) => task.id === newTask.id);
+  //   this.tasks[taskIndex] = newTask;
+  //   return this.tasks;
+
+  // }
   updateTask(newTask: Task){
-    const taskIndex = this.tasks.findIndex((task) => task.id === newTask.id);
-    this.tasks[taskIndex] = newTask;
-    return this.tasks;
+    return this.http.put(`${BASE_URL}/tasks/${newTask.id}`, {...newTask})
 
   }
 
   //delete task
+  // deleteTask(id: number){
+  //   const taskIndex = this.tasks.findIndex((task) => task.id === id);
+  //   this.tasks.splice(taskIndex, 1);
+  //   return this.tasks;
+  // }
   deleteTask(id: number){
-    const taskIndex = this.tasks.findIndex((task) => task.id === id);
-    this.tasks.splice(taskIndex, 1);
-    return this.tasks;
+    return this.http.delete(`${BASE_URL}/tasks/${id}`);
   }
 }

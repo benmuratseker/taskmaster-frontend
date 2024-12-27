@@ -79,6 +79,7 @@
     <button (click)="showModal = true">Add New Task</button>
 </div>
 @if (showModal) {
-    <app-task-form (closePanel)="showModal = false" [currentTask]="selectedTask" [formType]="formType"></app-task-form>
+    <!-- <app-task-form (closePanel)="showModal = false" [currentTask]="selectedTask" [formType]="formType"></app-task-form> -->
+    <app-task-form (closePanel)="handleModalClose($event)" [currentTask]="selectedTask" [formType]="formType"></app-task-form>
 }
 </div>

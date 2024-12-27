@@ -57,12 +57,18 @@ export class TaskFormComponent {
       };
 
       if(this.formType === 'CREATE'){
-        this.taskService.addTask(newTask);
+        // this.taskService.addTask(newTask);
+        this.taskService.addTask(newTask).subscribe(() => {
+          this.closePanel.emit('SUBMIT');
+        });
       } else {
-        this.taskService.updateTask(newTask);
+        // this.taskService.updateTask(newTask);
+        this.taskService.updateTask(newTask).subscribe(() => {
+          this.closePanel.emit('SUBMIT');
+        });
       }
 
-      this.closePanel.emit('SUBMIT');
+      //this.closePanel.emit('SUBMIT');
     }
   }
 

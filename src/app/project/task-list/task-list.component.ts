@@ -3,7 +3,7 @@ import { Task } from '../../task.model';
 import { AsyncPipe, DatePipe } from '@angular/common';
 import { TaskService } from '../../task.service';
 import { TaskFormComponent } from '../task-form/task-form.component';
-import { Observable } from 'rxjs';
+import { filter, map, Observable } from 'rxjs';
 
 const emptyTask = {
     name: "",
@@ -69,16 +69,23 @@ export class TaskListComponent {
   }
 
   handleCheckbox(id: number){
-    //console.log(id);
+    debugger;
+    console.log(id);
+    // const taskIndex = this.tasks.findIndex((task) => task.id == id);
     const taskIndex = this.tasks.findIndex((task) => task.id == id);
     const updatedTask = this.tasks[taskIndex];
     updatedTask.completed = !updatedTask.completed
     //this.tasks[taskIndex].completed = !this.tasks[taskIndex].completed;
-    this.tasks = this.taskService.updateTask(updatedTask);
+    // this.tasks = this.taskService.updateTask(updatedTask);
+
+    this.taskService.updateTask(updatedTask);
   }
 
   deleteTask(id: number){
-    this.tasks = this.taskService.deleteTask(id);
+    //this.tasks = this.taskService.deleteTask(id);
+    this.taskService.deleteTask(id).subscribe(() => {
+      this.updateTasks();
+    })
   }
 
   updateTask(task: Task){
@@ -88,5 +95,13 @@ export class TaskListComponent {
     this.formType = "UPDATE";
     //open the modal
     this.showModal = true;
+  }
+
+  handleModalClose(type: 'SUBMIT' | 'CANCEL'){
+    if (type === 'SUBMIT') {
+      this.updateTasks();
+    }
+
+    this.showModal = false;
   }
 }
