@@ -8,7 +8,7 @@ type TokenResponse = {
   token : string;
 };
 
-type RegisterRequest = {
+export type RegisterRequest = {
   firstname: string,
   lastname: string,
   email: string,
