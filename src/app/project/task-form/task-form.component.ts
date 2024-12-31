@@ -1,7 +1,7 @@
 import { Component, EventEmitter, inject, Input, Output, SimpleChange, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Task } from '../../task.model';
-import { TaskService } from '../../task.service';
+import { TaskService } from '../../Services/task.service';
 
 @Component({
   selector: 'app-task-form',

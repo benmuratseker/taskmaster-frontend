@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Task } from '../../task.model';
 import { AsyncPipe, DatePipe } from '@angular/common';
-import { TaskService } from '../../task.service';
+import { TaskService } from '../../Services/task.service';
 import { TaskFormComponent } from '../task-form/task-form.component';
 import { filter, map, Observable } from 'rxjs';
 
